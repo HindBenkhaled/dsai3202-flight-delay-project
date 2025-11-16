@@ -9,21 +9,21 @@ This repository contains Phase 1 of the Flight Delay Forecasting project, which 
 
 ## Medallion Architecture Workflow
 
-### 1️⃣ Bronze Layer (Raw)
+### 1️ Bronze Layer (Raw)
 - Ingested the original dataset from source  
 - No transformations applied  
 - Stored in Delta/Parquet format  
 
 ---
 
-### 2️⃣ Silver Layer (Cleaned & Standardized)
+### 2️ Silver Layer (Cleaned & Standardized)
 - Removed/handled missing and incorrect values  
 - Converted column types and extracted time-based fields  
 - Ensured schema consistency and data quality  
 
 ---
 
-### 3️⃣ Gold Layer (Feature-Ready for ML)
+### 3️ Gold Layer (Feature-Ready for ML)
 - Engineered features:
   - `DepHour`
   - `DelayCategory`
@@ -33,22 +33,13 @@ This repository contains Phase 1 of the Flight Delay Forecasting project, which 
 
 ---
 
-## 📂 Final Gold Schema
-Year (int)
-Month (int)
-DayOfMonth (int)
-DayOfWeek (int)
-FL_DATE (date)
-DepDelay (double)
-ArrDelay (double)
-DepHour (int)
-Distance (double)
-Origin (string)
-Dest (string)
-UniqueCarrier (string)
-DelayCategory (string)
-AvgDepDelayCarrier (double)
-AvgDepDelayOrigin (double)
+## Final Gold Schema
+Columns:
+Year, Month, DayOfMonth, DayOfWeek, FL_DATE,
+DepDelay, ArrDelay, DepHour, Distance,
+Origin, Dest, UniqueCarrier, DelayCategory,
+AvgDepDelayCarrier, AvgDepDelayOrigin
+
 
 ## Team Members
 
