@@ -1,50 +1,58 @@
 # dsai3202-flight-delay-project
 Flight Delay Prediction – Azure Data Engineering &amp; ML Pipeline
+ 
+### Phase 1 – Data Engineering (Bronze → Silver → Gold)
 
-Flight Delay Project – Phase 1
+This repository contains Phase 1 of the Flight Delay Forecasting project, which focuses on **data ingestion, cleaning, transformation, and feature engineering** following the **Medallion Architecture** using **Azure Databricks, PySpark, and Delta Lake**.
 
-This repository contains Phase 1 of the Flight Delay Forecasting project, which focuses on data ingestion, cleaning, transformation, and feature engineering following the Medallion Architecture (Bronze → Silver → Gold) using Azure Databricks, PySpark, and Delta Lake.
+---
 
+## Medallion Architecture Workflow
 
-Medallion Layers
-1️⃣ Bronze Layer (Raw):
+### 1️⃣ Bronze Layer (Raw)
+- Ingested the original dataset from source  
+- No transformations applied  
+- Stored in Delta/Parquet format  
 
--Ingested original dataset
+---
 
--No modifications applied
+### 2️⃣ Silver Layer (Cleaned & Standardized)
+- Removed/handled missing and incorrect values  
+- Converted column types and extracted time-based fields  
+- Ensured schema consistency and data quality  
 
--Stored as Parquet/Delta
+---
 
-2️⃣ Silver Layer (Cleaned):
+### 3️⃣ Gold Layer (Feature-Ready for ML)
+- Engineered features:
+  - `DepHour`
+  - `DelayCategory`
+  - `AvgDepDelayCarrier`
+  - `AvgDepDelayOrigin`
+- Saved final curated Delta table for ML training  
 
--Handled missing values and schema fixes
+---
 
--Converted columns and extracted useful time features
+## 📂 Final Gold Schema
+Year (int)
+Month (int)
+DayOfMonth (int)
+DayOfWeek (int)
+FL_DATE (date)
+DepDelay (double)
+ArrDelay (double)
+DepHour (int)
+Distance (double)
+Origin (string)
+Dest (string)
+UniqueCarrier (string)
+DelayCategory (string)
+AvgDepDelayCarrier (double)
+AvgDepDelayOrigin (double)
 
--Ensured consistent, validated data
+## Team Members
 
-3️⃣ Gold Layer (Feature-Ready):
-
-Engineered new predictors:
-
--DepHour
-
--DelayCategory
-
--AvgDepDelayCarrier
-
--AvgDepDelayOrigin
-
--Final curated dataset saved as Delta for ML use
-
-Final Gold Columns:
-Year, Month, DayOfMonth, DayOfWeek, FL_DATE,
-DepDelay, ArrDelay, DepHour, Distance,
-Origin, Dest, UniqueCarrier, DelayCategory,
-AvgDepDelayCarrier, AvgDepDelayOrigin
-
-
-Team Members:
-Name	ID
-Hind Benkhaled	60105179
-Farah Abo Shariha	60104384
+| Name | Student ID |
+|--------|------------|
+| Hind Benkhaled | 60105179 |
+| Farah Abo Shariha | 60104384 |
